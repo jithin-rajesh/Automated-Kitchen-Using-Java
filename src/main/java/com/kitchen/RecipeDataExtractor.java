@@ -1,4 +1,4 @@
-package com.example;
+package com.kitchen;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -77,7 +77,6 @@ public class RecipeDataExtractor {
         Element ingredientsSection = doc.selectFirst("div.tasty-recipes-ingredients");
         
         if (ingredientsSection != null) {
-            // Select spans that have both data-amount and data-unit
             Elements ingredientSpans = ingredientsSection.select("span[data-amount][data-unit]");
             
             for (Element span : ingredientSpans) {
