@@ -6,17 +6,16 @@ public class RecipeStep {
     private int step;
     private String action;
     private List<StepIngredient> ingredients;
-    private String time; // Extracted B-TIME/I-TIME entities
-    private String temperature; // Extracted B-TEMP entities
-    private String tool; // Extracted B-TOOL/I-TOOL entities
-    private String quantityInfo; // Extracted B-QUANTITY/B-UNIT/I-QUANTITY entities
-    private String stateInfo; // Extracted B-STATE entities
-    private String parameters; // Other relevant 'O' tagged words
+    private String time; 
+    private String temperature;
+    private String tool;
+    private String quantityInfo;
+    private String stateInfo; 
+    private String parameters;
 
-    // --- Constructor ---
     public RecipeStep(int step, String action, List<StepIngredient> ingredients, String time, String temperature, String tool, String quantityInfo, String stateInfo, String parameters) {
         this.step = step;
-        this.action = action; // This might be null if inferred
+        this.action = action;
         this.ingredients = ingredients;
         this.time = time;
         this.temperature = temperature;
@@ -26,8 +25,6 @@ public class RecipeStep {
         this.parameters = parameters;
     }
 
-    // --- Getters ---
-    // Needed for Jackson serialization
 
     public int getStep() {
         return step;
@@ -65,7 +62,6 @@ public class RecipeStep {
         return parameters;
     }
 
-    // --- toString() for readable console output ---
     @Override
     public String toString() {
          String ingredientStr = (ingredients == null || ingredients.isEmpty()) ? "[]" :
@@ -73,7 +69,6 @@ public class RecipeStep {
                                            .map(StepIngredient::getName)
                                            .collect(Collectors.joining(", ", "[", "]")); // Format as list
 
-         // Helper to format optional fields
          java.util.function.Function<String, String> format = s -> (s != null && !s.isEmpty()) ? s : "N/A";
 
          return String.format("  Step %d:\n    Action: %s\n    Ingredients: %s\n    Time: %s\n    Temp: %s\n    Tool: %s\n    Quantity: %s\n    State: %s\n    Params: %s",

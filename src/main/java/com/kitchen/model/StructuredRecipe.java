@@ -4,17 +4,14 @@ package com.kitchen.model;
 import java.util.List;
 
 public class StructuredRecipe {
-    private String name; // Name of the recipe
-    private List<RecipeStep> steps; // List of structured steps
+    private String name; 
+    private List<RecipeStep> steps;
 
-    // --- Constructor ---
     public StructuredRecipe(String name, List<RecipeStep> steps) {
         this.name = name;
         this.steps = steps;
     }
 
-    // --- Getters ---
-    // Needed for Jackson serialization
 
     public String getName() {
         return name;
@@ -25,7 +22,6 @@ public class StructuredRecipe {
     }
 
 
-    // --- toString() for readable console output ---
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -33,7 +29,7 @@ public class StructuredRecipe {
         sb.append("Steps:\n");
         if (steps != null && !steps.isEmpty()) {
             for (RecipeStep step : steps) {
-                sb.append(step).append("\n"); // Relies on RecipeStep.toString()
+                sb.append(step).append("\n"); 
             }
         } else {
             sb.append("  (No steps processed)\n");

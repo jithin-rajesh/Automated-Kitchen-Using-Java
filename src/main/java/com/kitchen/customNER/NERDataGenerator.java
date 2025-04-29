@@ -65,11 +65,6 @@ public class NERDataGenerator {
         }
     }
     
-    // ----------------------
-    // Build a global ingredient list from all recipes.
-    // For each ingredient, add the full cleaned string.
-    // For multi-word ingredients, add the last word (after checking its POS).
-    // ----------------------
     public static List<String> buildGlobalIngredientList(List<Recipe> recipes) {
         Set<String> ingredientSet = new HashSet<>();
         // Pipeline for tokenizing ingredients (tokenize, ssplit, pos)

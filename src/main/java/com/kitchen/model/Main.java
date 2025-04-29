@@ -4,28 +4,20 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kitchen.model.processing.RecipeProcessor; // Adjust package name if needed
 
-import javax.swing.*; // Import Swing utilities
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-// No longer needed: import java.util.Scanner;
-// No longer needed: import com.fasterxml.jackson.databind.SerializationFeature;
-
 public class Main {
 
-    // --- Configuration: File Names ---
     private static final String RECIPE_JSON_FILENAME = "complete_indian_recipes.json"; // Corrected underscore
     private static final String NER_MODEL_FILENAME = "ner-model.ser.gz";
-    // --- End Configuration ---
-
-    // Make processor and recipes accessible to GUI classes potentially
     private static RecipeProcessor processor;
     private static List<InputRecipe> recipes;
 
     public static void main(String[] args) {
 
-        // --- Determine Absolute File Paths ---
         String recipeJsonPath = findFilePath(RECIPE_JSON_FILENAME);
         String nerModelPath = findFilePath(NER_MODEL_FILENAME);
 
