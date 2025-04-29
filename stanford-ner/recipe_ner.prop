@@ -1,0 +1,27 @@
+# Properties file for training the recipe NER model
+trainFile = ner_training_data.txt
+serializeTo = ner-model.ser.gz
+map = word=0,answer=1
+
+# Features - Standard set, generally good starting point
+useClassFeature=true
+useWord=true
+useNGrams=true
+noMidNGrams=true
+maxNGramLeng=6
+usePrev=true
+useNext=true
+useSequences=true
+usePrevSequences=true
+maxLeft=1
+useTypeSeqs=true
+useTypeSeqs2=true
+useTypeySequences=true
+useWordShapeGazette=true
+wordShape=chris2useLC
+useDisjunctive=true
+
+# Optimization / Training Parameters (Defaults are often okay)
+# maxIterations = 100
+# sigma = 1.0
+# featureKeepProb = 0.9 # Feature dropout (helps prevent overfitting)
